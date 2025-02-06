@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -36,11 +37,15 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
   String _weatherCondition = "Condition: --";
 
   void _fetchWeather() {
-    // Placeholder for actual weather fetching logic
+    final random = Random();
+    int temp = 15 + random.nextInt(16); // Generates a random temperature between 15 and 30
+    List<String> conditions = ["Sunny", "Cloudy", "Rainy"];
+    String condition = conditions[random.nextInt(conditions.length)];
+
     setState(() {
-      _cityName = _cityController.text;
-      _temperature = "Temperature: 23°C";  // Mock data
-      _weatherCondition = "Condition: Sunny";  // Mock data
+      _cityName = _cityController.text.isNotEmpty ? _cityController.text : "Unknown City";
+      _temperature = "Temperature: $temp°C";
+      _weatherCondition = "Condition: $condition";
     });
   }
 
