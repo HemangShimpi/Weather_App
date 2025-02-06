@@ -80,7 +80,7 @@ class _WeatherInfoPageState extends State<WeatherInfoPage> {
               onPressed: _fetchWeather,
               child: const Text('Fetch Weather'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.green, //change color here
               ),
             ),
             SizedBox(height: 20),
